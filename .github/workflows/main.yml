@@ -15,5 +15,5 @@ jobs:
         GITLAB_HOSTNAME: "codeingress-test.hic.dundee.ac.uk"
         GITLAB_USERNAME: "csword001"
         GITLAB_PASSWORD: ${{ secrets.CODE_INGRESS_1  }} 
-        GITLAB_PROJECT_ID: "shuser2"
+        GITLAB_PROJECT_ID: "19"
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
