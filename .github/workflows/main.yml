@@ -10,7 +10,7 @@ jobs:
     - name: Mirror + trigger CI
       uses: SvanBoxel/gitlab-mirror-and-ci-action@master
       with:
-        args: "https://gitlab.com/<namespace>/<repository>"
+        args: "https://codeingress-test.hic.dundee.ac.uk/csword001/shuser2"
       env:
         GITLAB_HOSTNAME: "codeingress-test.hic.dundee.ac.uk"
         GITLAB_USERNAME: "csword001"
