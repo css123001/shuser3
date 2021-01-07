@@ -22,4 +22,4 @@ jobs:
         git config user.name "csword123001"
         git config user.email "csword001@dundee.ac.uk"
         git remote set-url origin "https://oauth2:${token}@codeingress-test.hic.dundee.ac.uk/csword001/shdeploy1.git"
-        git push origin master
+        git push origin main
