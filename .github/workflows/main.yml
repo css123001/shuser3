@@ -1,19 +1,25 @@
-name: shuser3-2-mirror
+name: PushGitlab
 
-on: [push]
+on:
+  push:
+    branches: [ master ]
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-    - uses: actions/checkout@v1
-    - name: Mirror + trigger CI
-      uses: SvanBoxel/gitlab-mirror-and-ci-action@master
-      with:
-        args: "https://codeingress-test.hic.dundee.ac.uk/csword001/shuser2"
-      env:
-        GITLAB_HOSTNAME: "codeingress-test.hic.dundee.ac.uk"
-        GITLAB_USERNAME: "csword001"
-        GITLAB_PASSWORD: ${{ secrets.CODE_INGRESS_1  }} 
-        GITLAB_PROJECT_ID: "19"
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
+    - uses: actions/checkout@v2
+      with: 
+        fetch-depth: 0
+      
+
+    - name: Push To Gitlab
+      env: 
+        token: ${{ secrets.GITLAB_ACCESS_TOKEN }}
+      run: |
+        echo Starting to push repo to gitlab
+        git config user.name "csword123001"
+        git config user.email "csword001@dundee.ac.uk"
+        git remote set-url origin "https://oauth2:${token}@codeingress-test.hic.dundee.ac.uk/csword001/shdeploy1.git"
+        git push origin master
